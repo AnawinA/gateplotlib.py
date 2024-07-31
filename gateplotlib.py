@@ -7,12 +7,11 @@ class LogicGates:
     
     #property outside can use
     result_header = []
-    
-    def __init__(self, length: int, name="unknown") -> None:
+    def __init__(self, length: int, name="unknown", order="A") -> None:
         self.length = length
         self.name = name
         self.possible_bool = list(product([0, 1], repeat=self.length))
-        self.result = {chr(65 + i): list(column) for i, column in enumerate(zip(*self.possible_bool))}
+        self.result = {chr(ord(order) + i): list(column) for i, column in enumerate(zip(*self.possible_bool))}
         self.result_header = list(self.result.keys())
     
     def __repr__(self) -> str:
@@ -69,6 +68,7 @@ class LogicGates:
             to_use_make.append(self.result[header])
         magic_str = magic_str.replace('!', ' not ')
         magic_str = magic_str.replace('&', ' and ')
+        magic_str = magic_str.replace('.', ' and ')
         magic_str = magic_str.replace('|', ' or ')
         magic_str = magic_str.replace('+', ' or ')
         # print(to_use_make)
@@ -80,6 +80,9 @@ class LogicGates:
     
     def compare(self, a, b):
         return self.result[a] == self.result[b]
+    
+    def compare_recent(self):
+        return self.result[-1] == self.result[-2]
     
     def add_all_and(self) -> None: # use function all() !!!
         self.__create_column_by_all("AND", all)
