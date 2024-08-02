@@ -1,7 +1,5 @@
 from itertools import product
 from tabulate import tabulate
-from kbase_b import k_map
-
 
 class LogicGates:
     
@@ -59,6 +57,14 @@ class LogicGates:
         new_column = [int(a ^ b) for a, b in zip(self.result[key1], self.result[key2])]
         self.result.update({f"{key1}^{key2}": new_column})
     
+    def add_order(self):
+        new_column = [i for i in range(2**self.length)]
+        self.result.update({"[i]": new_column})
+    
+    def add_separate(self):
+        new_column = ["/" for _ in range(2**self.length)]
+        self.result.update({"/": new_column})
+
     def make(self, logic_str: str, label: str, is_print: bool = False) -> None:
         magic_str = logic_str
         is_print and print(magic_str)
