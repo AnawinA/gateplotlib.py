@@ -64,6 +64,10 @@ class LogicGates:
     def add_separate(self):
         new_column = ["/" for _ in range(2**self.length)]
         self.result.update({"/": new_column})
+    
+    def add_mark(self, keys: list): 
+        new_column = ["-" if i in keys else " " for i in range(2**self.length)]
+        self.result.update({"m": new_column})
 
     def make(self, logic_str: str, label: str, is_print: bool = False) -> None:
         magic_str = logic_str
