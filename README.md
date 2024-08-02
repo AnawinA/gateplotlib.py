@@ -1,8 +1,16 @@
 # Gate Plot Lib . PY
 
+# Best to use in
+ICS subject(Introduction to Computer System)
+in KMITL university
 
-features:
+week 2-4: including Lecture, Lab, Exercise
 
+
+
+
+
+## Features
 - help() - for more information
 - add_...("A",*) - quick add boolean between 1 or 2 column by name
   - and, or, not
