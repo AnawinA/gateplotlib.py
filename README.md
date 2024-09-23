@@ -7,6 +7,7 @@ in KMITL university
 week 2-4: including Lecture, Lab, Exercise
 
 
+![PY (Small)](https://github.com/user-attachments/assets/2011a0d0-83fa-4dc1-a807-1596499c4b46)
 
 
 
